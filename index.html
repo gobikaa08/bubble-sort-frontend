@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Ranking System</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <h1>Bubble Sort Student Ranking</h1>
+    <p class="tagline">Add student scores and rank them instantly using Bubble Sort.</p>
+  </header>
+
+  <main class="app-content">
+    <section class="card">
+      <h2>Add Student</h2>
+      <form id="student-form" autocomplete="off">
+        <div class="form-group">
+          <label for="student-name">Student Name</label>
+          <input id="student-name" name="name" type="text" placeholder="e.g. Alex Johnson" required>
+        </div>
+        <div class="form-group">
+          <label for="student-score">Score</label>
+          <input id="student-score" name="score" type="number" min="0" max="100" placeholder="0 - 100" required>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn primary">Add Student</button>
+          <button type="button" id="reset-form" class="btn secondary">Clear</button>
+        </div>
+      </form>
+      <p id="form-feedback" class="hidden"></p>
+    </section>
+
+    <section class="card">
+      <h2>Student List</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Score</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="student-list">
+            <tr class="empty-state">
+              <td colspan="4">No students added yet.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card-actions">
+        <button type="button" id="sort-students" class="btn primary" disabled>Sort &amp; Rank</button>
+        <button type="button" id="clear-students" class="btn danger" disabled>Reset List</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <h2>Ranking Result</h2>
+        <div class="toggle-group">
+          <label>Order:</label>
+          <label class="switch">
+            <input type="checkbox" id="sort-order" checked>
+            <span class="slider"></span>
+          </label>
+          <span id="sort-order-label">High → Low</span>
+        </div>
+      </div>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Name</th>
+              <th>Score</th>
+            </tr>
+          </thead>
+          <tbody id="ranked-list">
+            <tr class="empty-state">
+              <td colspan="3">Sorting pending…</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="sort-summary" class="sort-summary hidden"></div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>Built with ♥ using pure HTML, CSS, and JavaScript.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
